@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sanger — כלים של גדולים, לעסק קטן</title>
+<meta name="description" content="קופה, מלאי, משלוחים, מעבדה, מועדון וגבייה במערכת אחת שמדברת עם עצמה. נבנתה מהצד השני של הדלפק. מ-₪500 לחודש.">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:title" content="Sanger — כלים של גדולים, לעסק קטן">
+<meta property="og:description" content="במקום שש מערכות שלא מדברות — אחת שכן.">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='11' fill='%23b8963e'/%3E%3Cpath d='M9 35v-6h9v-7h9v-6.5h8' stroke='%2317140c' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   סנגר · דף נחיתה
+   מערכת עיצוב: Trust & Authority (B2B, תוכנה קריטית לעסק)
+   — אבל **בלי הוכחה חברתית שאין לנו.** אין לוגואים, אין
+   המלצות, אין תעודות. התחליף הכן הוא ספציפיות: מספרים
+   שנמדדו, רשימה מדויקת של מה יש, ומחיר גלוי.
+
+   צבע: הזהב של המוצר, לא נייבי גנרי. דף נחיתה בפלטה
+   אחרת מהמוצר שהוא מוכר יוצר נפילה ברגע הראשון שאחרי
+   ההרשמה.
+
+   ⚠️ הזהב #b8963e על לבן = 2.81:1 — **נכשל**. ולכן:
+   · טקסט זהוב על לבן → #8a6f22 (4.8:1)
+   · זהב כרקע → טקסט דיו כהה (6.2:1)
+   · טקסט זהוב על כהה → #d4b45f (9.44:1)
+   ============================================================ */
+:root{
+  --ink:#0f1115; --ink-2:#171a20;
+  --gold:#b8963e; --gold-lt:#d4b45f; --gold-ink:#8a6f22;
+  --paper:#ffffff; --paper-2:#f7f8fa; --paper-3:#eef1f5;
+  --text:#1e293b; --text-2:#475569; --text-3:#64748b;
+  --on-dark:#f1f5f9; --on-dark-2:#a8b3c1;
+  --line:#e2e8f0; --line-dark:#262b34;
+  --ok:#0a7a2e;
+  --r:14px; --r-lg:20px;
+  --sp:8px;
+  --shadow:0 1px 2px rgba(15,17,21,.04),0 8px 24px rgba(15,17,21,.06);
+  --shadow-lg:0 2px 4px rgba(15,17,21,.05),0 18px 44px rgba(15,17,21,.10);
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--text);
+  font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:17px;line-height:1.7;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.dsp{font-family:Assistant,Heebo,system-ui,Arial,sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.015em;margin:0}
+h2{font-size:clamp(28px,4.2vw,42px)}
+h3{font-size:19px;font-weight:700;line-height:1.35}
+p{margin:0}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1120px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+.sec{padding-block:clamp(64px,9vw,112px)}
+.eyebrow{font-size:13.5px;font-weight:700;letter-spacing:.08em;color:var(--gold-ink);text-transform:none;margin-bottom:10px}
+.lead{font-size:clamp(17px,2vw,19.5px);color:var(--text-2);line-height:1.75;max-width:62ch}
+.muted{color:var(--text-3);font-size:14.5px}
+
+/* ── מיקוד נראה תמיד. הסרת הטבעת היא באג נגישות, לא עיצוב ── */
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{
+  outline:3px solid var(--gold-ink);outline-offset:3px;border-radius:6px;
+}
+.skip{position:absolute;inset-inline-start:-9999px;top:8px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px}
+.skip:focus{inset-inline-start:16px}
+
+/* ── ניווט ── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;min-height:68px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:Assistant;font-weight:800;font-size:21px;text-decoration:none;letter-spacing:-.022em;
+  /* יעד מגע 44px גם כשהטקסט נמוך ממנו — ההיטבוקס מתוח, לא הפריט */
+  min-height:44px;padding-block:5px}
+.mark{width:36px;height:36px;border-radius:10px;background:var(--gold);display:grid;place-items:center;flex:none}
+.navlinks{display:none;gap:6px;margin-inline-start:auto}
+@media(min-width:900px){.navlinks{display:flex}}
+.navlinks a{padding:9px 13px;border-radius:9px;font-size:15.5px;font-weight:500;color:var(--text-2);text-decoration:none;transition:background .18s var(--ease),color .18s var(--ease)}
+.navlinks a:hover{background:var(--paper-3);color:var(--text)}
+.nav .btn{margin-inline-start:auto;flex:none;padding-inline:16px;font-size:15px}
+@media(min-width:900px){.nav .btn{margin-inline-start:8px;padding-inline:22px;font-size:16px}}
+
+/* ── כפתורים · יעד מגע 44px+ ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:12px 22px;border-radius:12px;border:1px solid transparent;
+  font-family:Assistant;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;
+  transition:transform .16s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease),border-color .18s var(--ease);
+}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--gold);color:#17140c;box-shadow:0 1px 2px rgba(15,17,21,.10)}
+.btn-gold:hover{background:#c9a54a;box-shadow:0 6px 18px rgba(184,150,62,.34)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{background:var(--paper-2);border-color:#cbd5e1}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#1d222b}
+.btn-onDark{background:transparent;border-color:#39414d;color:var(--on-dark)}
+.btn-onDark:hover{background:#1b1f27;border-color:#4b545f}
+.btn.wide{width:100%}
+
+/* ── הירו ── */
+.hero{background:var(--ink);color:var(--on-dark);position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(760px 420px at 82% -8%,rgba(184,150,62,.20),transparent 62%),
+    radial-gradient(560px 340px at 8% 108%,rgba(184,150,62,.09),transparent 60%);
+}
+.hero .wrap{position:relative;padding-block:clamp(64px,10vw,116px)}
+.hero h1{font-size:clamp(34px,6.2vw,60px);color:#fff;max-width:16ch}
+.hero .lead{color:var(--on-dark-2);margin-top:18px;font-size:clamp(17px,2.1vw,20px);max-width:56ch}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(184,150,62,.14);border:1px solid rgba(184,150,62,.34);color:var(--gold-lt);font-size:14px;font-weight:600;margin-bottom:22px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+@media(max-width:520px){.hero-cta .btn{flex:1 1 100%}}
+/* אייקון בראש השורה ולא במרכז הבלוק — אחרת בשתי שורות הוא צף באמצע */
+.hero-note{margin-top:20px;font-size:14.5px;color:#8b96a5;display:flex;align-items:flex-start;gap:8px;max-width:52ch}
+.hero-note svg{flex:none;margin-top:5px}
+
+/* ── רצועת "במקום" ── */
+.swap{background:var(--ink-2);border-top:1px solid var(--line-dark);color:var(--on-dark)}
+.swap .wrap{padding-block:clamp(44px,6vw,68px)}
+.swap-grid{display:grid;gap:28px;align-items:center}
+@media(min-width:920px){.swap-grid{grid-template-columns:1fr auto 1fr;gap:36px}}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:10px;
+  background:#20242c;border:1px solid #2e343d;color:#9aa5b3;font-size:14.5px;font-weight:500;
+  text-decoration:line-through;text-decoration-color:#5c6470;text-decoration-thickness:1.5px;
+}
+.arrow{display:grid;place-items:center;color:#4d5561}
+@media(max-width:919px){.arrow svg{transform:rotate(90deg)}}
+.one{
+  background:linear-gradient(180deg,#232830,#1b1f26);border:1px solid rgba(184,150,62,.34);
+  border-radius:var(--r-lg);padding:22px 24px;box-shadow:0 14px 40px rgba(0,0,0,.34);
+}
+.one .n{font-family:Assistant;font-size:44px;font-weight:800;color:var(--gold-lt);line-height:1;font-variant-numeric:tabular-nums}
+
+/* ── רשת יכולות ── */
+.grid{display:grid;gap:16px;grid-template-columns:1fr;align-items:start}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px;box-shadow:var(--shadow);
+  transition:box-shadow .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease);
+}
+.card:hover{box-shadow:var(--shadow-lg);border-color:#d3dae4;transform:translateY(-2px)}
+.ico{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;
+  background:#faf6ec;border:1px solid #eadfc4;color:var(--gold-ink);
+}
+.card p{color:var(--text-2);font-size:15.5px;margin-top:7px;line-height:1.65}
+
+/* ── מחירון ── */
+.prices{background:var(--paper-2);border-block:1px solid var(--line)}
+.tiers{display:grid;gap:18px;grid-template-columns:1fr;margin-top:38px;align-items:start}
+@media(min-width:900px){.tiers{grid-template-columns:repeat(3,1fr)}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;height:100%}
+.tier.best{border-color:var(--gold);box-shadow:0 2px 6px rgba(184,150,62,.16),0 20px 46px rgba(184,150,62,.14);position:relative}
+.badge{position:absolute;top:-13px;inset-inline-start:26px;background:var(--gold);color:#17140c;font-family:Assistant;font-weight:800;font-size:13px;padding:5px 13px;border-radius:999px}
+.price{display:flex;align-items:baseline;gap:6px;margin:14px 0 4px}
+.price b{font-family:Assistant;font-size:44px;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price span{color:var(--text-3);font-size:15px;font-weight:500}
+.vat{font-size:13px;color:var(--text-3);letter-spacing:.01em}
+.feats{list-style:none;margin:20px 0 24px;padding:0;display:flex;flex-direction:column;gap:11px;flex:1}
+.feats li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:var(--text-2);line-height:1.55}
+.feats svg{flex:none;margin-top:4px;color:var(--ok)}
+.feats .off{color:#94a3b8}
+.feats .off svg{color:#cbd5e1}
+
+/* ── התאמה אישית ── */
+.custom{background:var(--ink);color:var(--on-dark);border-radius:var(--r-lg);padding:clamp(26px,4vw,40px);margin-top:22px;display:grid;gap:22px}
+@media(min-width:860px){.custom{grid-template-columns:1.35fr auto;align-items:center}}
+.custom h3{color:#fff;font-size:23px}
+.custom p{color:var(--on-dark-2);font-size:15.5px;margin-top:8px;max-width:56ch}
+
+/* ── טופס ── */
+.form-sec{background:var(--paper)}
+.form-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3.5vw,34px);box-shadow:var(--shadow-lg)}
+.f2{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:620px){.f2{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:14.5px;font-weight:600;color:var(--text)}
+.req{color:#b91c1c;margin-inline-start:2px}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:16px;color:var(--text);background:var(--paper);
+  border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;min-height:48px;
+  transition:border-color .16s var(--ease),box-shadow .16s var(--ease);
+}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#cbd5e1}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold-ink);box-shadow:0 0 0 3px rgba(138,111,34,.14);outline:none}
+.field .hint{font-size:13px;color:var(--text-3)}
+.field .err{font-size:13.5px;color:#b91c1c;font-weight:500;display:none}
+.field[data-invalid] input,.field[data-invalid] select{border-color:#b91c1c}
+.field[data-invalid] .err{display:block}
+.formnote{font-size:13.5px;color:var(--text-3);margin-top:14px;line-height:1.6}
+.okbox{display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r);padding:18px 20px;color:#14532d;font-size:15.5px;line-height:1.6}
+
+/* ── שאלות ── */
+details{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);margin-bottom:10px;overflow:hidden}
+summary{
+  cursor:pointer;list-style:none;padding:17px 20px;font-family:Assistant;font-weight:700;font-size:16.5px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--paper-2)}
+summary .cv{flex:none;color:var(--text-3);transition:transform .22s var(--ease)}
+details[open] summary .cv{transform:rotate(180deg)}
+details .body{padding:0 20px 18px;color:var(--text-2);font-size:15.5px;line-height:1.75}
+
+/* ── תחתית ── */
+footer{background:var(--ink);color:var(--on-dark-2);border-top:1px solid var(--line-dark)}
+footer .wrap{padding-block:44px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+footer a{color:var(--on-dark-2);text-decoration:none}
+footer nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding-inline:4px}
+footer a:hover{color:#fff;text-decoration:underline}
+
+
+/* ── הכאב ── */
+.story .wrap{max-width:760px}
+.story q{display:block;font-family:Assistant,'Segoe UI',system-ui,Arial,sans-serif;font-weight:800;font-size:clamp(24px,3.6vw,34px);line-height:1.3;letter-spacing:-.015em;color:var(--text);quotes:none;margin-bottom:24px}
+.story p{font-size:clamp(16.5px,1.9vw,18.5px);color:var(--text-2);line-height:1.8;margin-bottom:16px}
+.story b{color:var(--text);font-weight:600}
+.story .sig{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:15px;color:var(--text-3)}
+/* ── איך עובדים ── */
+.paths{display:grid;gap:18px;margin-top:36px}
+@media(min-width:880px){.paths{grid-template-columns:1fr 1fr}}
+.path{border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column}
+.path-a{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+.path-b{background:var(--ink);color:var(--on-dark);border:1px solid rgba(184,150,62,.4);box-shadow:0 18px 44px rgba(15,17,21,.18)}
+.path-b h3{color:#fff}
+.path .kicker{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--gold-ink);margin-bottom:8px}
+.path-b .kicker{color:var(--gold-lt)}
+.path h3{font-size:23px;margin-bottom:8px}
+.path p{font-size:15.5px;color:var(--text-2);line-height:1.7}
+.path-b p{color:var(--on-dark-2)}
+.path .grow{flex:1}
+.limit{display:flex;gap:11px;align-items:flex-start;background:rgba(184,150,62,.12);border:1px solid rgba(184,150,62,.3);border-radius:var(--r);padding:14px 16px;margin:18px 0;font-size:15px;color:#e6d7ae;line-height:1.6}
+.limit svg{flex:none;margin-top:3px;color:var(--gold-lt)}
+/* ── שאיפת המחיר ── */
+.aim .wrap{max-width:820px}
+.aimbox{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3.4vw,34px);box-shadow:var(--shadow)}
+.honest{display:flex;gap:12px;align-items:flex-start;background:#f7f4ec;border:1px solid #e6dcc4;border-radius:var(--r);padding:15px 17px;margin-top:20px;font-size:15px;line-height:1.65;color:var(--text-2)}
+.honest svg{flex:none;margin-top:3px;color:var(--gold-ink)}
+.honest b{color:var(--text)}
+/* ── תנועה: משמעות בלבד, ומכובדת מול העדפת המשתמש ── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+
+.soon{margin-top:34px;border:1px dashed #d6dae0;border-radius:14px;padding:22px 24px;background:#fbfcfd}
+.soon-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.soon-list li{padding-inline-start:26px;position:relative;color:var(--muted);font-size:15px;line-height:1.65}
+.soon-list li::before{content:"";position:absolute;inset-inline-start:6px;top:9px;width:7px;height:7px;border-radius:50%;border:2px solid #b8963e}
+.soon-list b{color:var(--text);font-weight:600}
+@media(max-width:600px){.soon{padding:18px 16px}}
+
+/* ── כרטיס שנפתח: הפירוט חי בתוך הכרטיס ולא בעמוד נפרד ── */
+details.card{margin-bottom:0;overflow:visible;padding:22px}
+details.card>summary{padding:0;display:block;min-height:0;font-family:inherit;font-weight:400;font-size:inherit;background:none}
+details.card>summary:hover{background:none}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::marker{content:""}
+details.card .more{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:14px;font-weight:600;color:var(--gold-ink);min-height:44px}
+details.card .more .cv{transition:transform .22s var(--ease)}
+details.card[open] .more .cv{transform:rotate(180deg)}
+details.card[open]{border-color:#d3dae4;box-shadow:var(--shadow-lg)}
+.dtl{margin-top:4px;padding-top:16px;border-top:1px solid var(--line)}
+.dtl p{color:var(--text-2);font-size:15px;line-height:1.7;margin-bottom:12px}
+.dtl p:last-child{margin-bottom:0}
+.dtl b{color:var(--text);font-weight:600}
+.lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--text-3);margin-bottom:3px}
+.dtl .fix{color:var(--text-3)}
+.dtl .fix .lbl{color:var(--gold-ink)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<nav class="nav" aria-label="ראשי">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 44 44" fill="none" stroke="#17140c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 37V30h9v-7h9v-6.5h9"/><rect x="30" y="8" width="9" height="8" rx="2.5"/></svg></span>
+      <span dir="ltr">Sanger</span>
+    </a>
+    <div class="navlinks">
+      <a href="#why">למה זה נבנה</a>
+      <a href="#what">מה יש בפנים</a>
+      <a href="#how">איך עובדים</a>
+      <a href="#pricing">מחירים</a>
+    </div>
+    <a class="btn btn-gold" href="#contact">דברו איתנו</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ══ הירו ══ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4Z"/></svg>
+      מערכת ניהול לעסק קמעונאי
+    </span>
+    <h1>כלים של גדולים — לעסק קטן.</h1>
+    <p class="lead">קופה, מלאי, משלוחים, מעבדה, מועדון וגבייה ב<b style="color:#fff;font-weight:600">מערכת אחת שמדברת עם עצמה</b>. במקום שש מערכות שלא.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#contact">
+        השאירו פרטים ונחזור אליכם
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </a>
+      <a class="btn btn-onDark" href="#why">למה זה נבנה</a>
+    </div>
+    <p class="hero-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+      מחירים גלויים באתר · בלי התחייבות לשנים · הנתונים שלכם נשארים שלכם
+    </p>
+  </div>
+</header>
+
+
+<!-- ══ הכאב ══ -->
+<section class="sec story" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">למה זה נבנה</p>
+      <h2 id="why-h" style="margin-bottom:26px">נבנה מהצד השני של הדלפק</h2>
+      <q>אני יודע לבנות ולתקן דברים. את זה תמיד ידעתי.</q>
+      <p>מה שלא ידעתי הגיע ביום שפתחתי עסק &mdash; עובדים, מכירות, שיווק, ניהול, וכל הבירוקרטיה שנלווית לזה. <b>אף אחד לא לימד אותי את החלק הזה.</b> למדתי אותו תוך כדי, עשר שנים.</p>
+      <p>קניתי מערכת אחרי מערכת, וכולן הניחו שאני כבר יודע. הן ידעו לרשום מה מכרתי &mdash; <b>הן לא ידעו להגיד לי מה זה אומר</b>, ולא לקחו ממני שום עומס.</p>
+      <p>אז בניתי אחת שכן. כי בסוף זה מה שאני יודע לעשות: <b>לבנות ולתקן.</b></p>
+      <p class="sig">מי שכתב את זה גם בנה את המערכת, אחרי עשר שנים בעסק.</p>
+    </div>
+  </div>
+</section>
+<!-- ══ במקום ש… ══ -->
+<section class="swap" aria-labelledby="swap-h">
+  <div class="wrap">
+    <div class="swap-grid rv">
+      <div>
+        <h2 id="swap-h" style="color:#fff;font-size:clamp(21px,2.6vw,26px);margin-bottom:16px">היום זה יושב בשישה מקומות</h2>
+        <div class="chips">
+          <span class="chip">קופה</span>
+          <span class="chip">אקסל מלאי</span>
+          <span class="chip">אתר חברת המשלוחים</span>
+          <span class="chip">תוכנת חשבוניות</span>
+          <span class="chip">מועדון לקוחות</span>
+          <span class="chip">ניהול האתר</span>
+        </div>
+        <p class="muted" style="color:#7f8a98;margin-top:14px;font-size:14px">וכל אחד מהם מכיר רק חלק מהמכירה.</p>
+      </div>
+      <div class="arrow" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </div>
+      <div class="one">
+        <div class="n">1</div>
+        <h3 style="color:#fff;margin-top:8px">מערכת</h3>
+        <p style="color:var(--on-dark-2);font-size:15px;margin-top:6px">
+          מכירה אחת פותחת משלוח, מורידה מלאי בסניף הנכון, מזכה נקודות ומפיקה מסמך — <b style="color:var(--gold-lt);font-weight:600">בלי להקליד שוב באף מקום</b>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ מה יש בפנים ══ -->
+<section class="sec" id="what" aria-labelledby="what-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:64ch">
+      <p class="eyebrow">מה יש בפנים</p>
+      <h2 id="what-h">לא רק קופה — כל מה שקורה אחרי המכירה</h2>
+      <p class="lead" style="margin-top:14px">כל מודול נבנה מול חנות אמיתית שעובדת. מה שלא רלוונטי לעסק שלכם — פשוט מכובה ולא מופיע במסכים.</p>
+      <p class="muted" style="margin-top:10px;font-size:14.5px">גילוי נאות: עד היום כל זה נבדק בפועל <b style="color:var(--text);font-weight:600">על חנות בגדים</b>. תחומים נוספים נבנים אחד-אחד, ואנחנו לא מפרסמים מודול לפני שהוא עובד אצל מישהו.</p>
+    </div>
+
+    <div class="grid" style="margin-top:38px">
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h4"/></svg></div>
+          <h3>קופה</h3>
+          <p>מכירה, החזרה, זיכוי, פיצול תשלום, הצעת מחיר והשהיית סל. עובדת גם כשהאינטרנט נופל — במזומן ובצ׳ק.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>סורקים ברקוד או בוחרים מהלוח, ואפשר לפצל תשלום אחד בין מזומן, אשראי, צ׳ק וגיפט קארד. סל שנתקע — משהים וחוזרים אליו. הצעת מחיר הופכת למכירה בלחיצה.</p>
+          <p><b class="lbl">מה שונה כאן</b>המכירה נרשמת על שם העובד שביצע אותה, והנחה מעל התקרה שלו עוברת דרך קוד אישור — ונרשמת. בלי אינטרנט הקופה ממשיכה במזומן, בצ׳ק ובתעודת משלוח; <b>אשראי לא נסלק אופליין, בכוונה</b>.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>אין רגע שבו הקופה עוצרת את התור.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+          <h3>מלאי לפי דגם, צבע ומידה</h3>
+          <p>קבלת סחורה, הזמנות ספק, ספירה, העברות בין סניפים — כולל סגירת הפער כשמה שיצא לא הגיע.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>כל דגם מתפרק לצבעים ולמידות, וכל מידה היא ברקוד משלה. קבלת סחורה נעשית מול הזמנת הספק, כך שרואים מה הוזמן, מה הגיע ומה חסר.</p>
+          <p><b class="lbl">מה שונה כאן</b>העברה בין סניפים נסגרת רק כשהצד המקבל מאשר. מה שיצא ולא הגיע <b>נשאר פתוח כפער שרואים</b> ולא מתאזן לבד.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>"יש לך את זה במידה 38?" — נענה מהקופה, בלי ללכת למחסן.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 17V5a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h1"/><path d="M14 8h4l3 3v5a1 1 0 0 1-1 1h-1"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg></div>
+          <h3>משלוחים</h3>
+          <p>פתיחת משלוח מתוך המכירה, מדבקה, ומעקב סטטוסים שמתעדכן לבד. הכתובת מאומתת מול מרשם הרחובות עוד לפני שהיא נשלחת.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>מתוך המכירה נפתח משלוח, יוצאת מדבקה, והסטטוסים מתעדכנים לבד מחברת השילוח אל תוך המכירה.</p>
+          <p><b class="lbl">מה שונה כאן</b>הכתובת נבדקת מול מרשם הרחובות <b>לפני</b> שהיא נשלחת — רחוב שלא קיים בעיר נעצר על המסך, לא אצל הנהג.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>משלוח שחוזר בגלל כתובת שגויה, ולקוח שמתקשר לשאול איפה החבילה.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg></div>
+          <h3>מעבדה ותיקונים</h3>
+          <p>קליטת פריט עם הצהרת לקוח חתומה, סטטוסים, תקרת תיקון שדורשת אישור, וגיול מול ספק חיצוני.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>הפריט נכנס עם הצהרת לקוח שנחתמת על המסך, מקבל סטטוס, וממשיך לספק חיצוני אם צריך.</p>
+          <p><b class="lbl">מה שונה כאן</b><b>תקרת תיקון</b>: מעל סכום שנקבע מראש התיקון נעצר ודורש אישור. וגיול שמראה מה יושב אצל ספק חיצוני יותר מדי זמן.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>"אמרתי מאתיים והוא לקח שש מאות", ותיקים ששוכבים בארגז ואף אחד לא זוכר.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 8.4 12 3 3.4 8.4 12 13.8l8.6-5.4Z"/><path d="m3.4 15.6 8.6 5.4 8.6-5.4M3.4 12 12 17.4 20.6 12"/></svg></div>
+          <h3>מבצעים ומועדון</h3>
+          <p>מבצעים לפי שעה, סניף וחברי מועדון · נקודות · גיפט קארד · מארזים · קודי שותפים.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>מבצע מוגדר לפי פריט או קטגוריה, תאריכים, שעות, סניף וחברי מועדון. הקופה מחשבת לבד את המחיר הטוב ביותר ומראה ללקוח מה הוא קיבל. לצד זה: נקודות, גיפט קארד, מארזים וקודי שותפים.</p>
+          <p><b class="lbl">מה שונה כאן</b>ההנחה נשמרת בשורת המכירה עצמה — ולכן אפשר לשאול בסוף החודש <b>כמה עלה לנו כל מבצע</b>.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>מבצע שנגמר בתאריך ולא צריך לזכור לכבות, ומוכר שלא צריך לחשב באמצע התור.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>גבייה ותזרים</h3>
+          <p>חייבים, פנקס צ׳קים עם התראת פירעון, זיכויים וקיזוז, וריכוז חודשי שנשלח ללקוחות העסקיים.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>לקוח עסקי צובר חוב, פנקס הצ׳קים יודע מתי כל צ׳ק אמור להיפרע ומתריע לפני, זיכוי מתקזז מול חוב קיים, וריכוז חודשי נשלח ללקוח.</p>
+          <p><b class="lbl">מה שונה כאן</b>הגבייה יושבת על אותן מכירות — לא על קובץ נפרד שמישהו צריך לעדכן.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>לדעת מי חייב, כמה, ומתי נכנס כסף — בלי אקסל צדדי שמתיישן.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 15 3.5-4 3 2.5L18 7"/></svg></div>
+          <h3>דוחות שאפשר לחתוך</h3>
+          <p>מיון בלחיצה, בורר עמודות, קיבוץ לפי דייל או סניף, וירידה מהשורה לעסקה עצמה.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>כל דוח ממוין בלחיצה על הכותרת, בוחרים אילו עמודות להדפיס, מקבצים לפי דייל או סניף, ויורדים מהשורה אל העסקה עצמה.</p>
+          <p><b class="lbl">מה שונה כאן</b>יש גם דוח <b>התאמות בין סניפים</b> — איפה המספרים לא מסתדרים, ולמה.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>לא צריך לבקש מאיתנו דוח מיוחד בכל פעם שהשאלה משתנה.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h1v-8H5v0a7 7 0 0 1 14 0v0h-2v8h1a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Z"/></svg></div>
+          <h3>תמיכה שרואה את המערכת</h3>
+          <p>פנייה מתוך המסך שנתקע, עם ההקשר שנאסף לבד. סשן אבחון מתועד ביומן <b style="color:var(--text);font-weight:600">שאתם קוראים</b>.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>הפנייה נפתחת מתוך המסך שנתקע, וההקשר הטכני נאסף מאליו — איזו גרסה, איזה מסך, מה קרה לפני.</p>
+          <p><b class="lbl">מה שונה כאן</b>אם צריך שניכנס ונסתכל, זה נעשה בסשן מוגבל בזמן, עם באנר שרואים כל הזמן ויומן <b>שאתם קוראים</b>: מי נכנס, מתי, ומה עשה.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>לא צריך לזכור מה לחצת, ולא צריך לסמוך על זה שנספר לכם מה עשינו.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>עובדים והרשאות</h3>
+          <p>כניסה בקוד אישי, שבעה תפקידים ו-18 הרשאות, ותקרת הנחה לכל עובד. לכל הרשאה יש גם מצב <b style="color:var(--text);font-weight:600">"דורש אישור"</b> — הפעולה עוברת, ונרשם מי אישר.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>כל עובד נכנס בקוד אישי. התפקיד קובע ברירת מחדל — בעלים, מנהל סניף, אחמ״ש, מוכרן, קופה, מחסנאי, מתפעל אתר — ואפשר לחרוג לעובד בודד.</p>
+          <p><b class="lbl">מה שונה כאן</b>לכל הרשאה שלושה מצבים: מותר · <b>דורש אישור</b> · חסום. וקוד האישור של המנהל אינו קוד הכניסה שלו — מסירתו לא נותנת גישה למערכת, ואפשר לבטל אותו לבד.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>לתת למוכר לעבוד בלי לתת לו הכול, ולדעת מי אישר כל חריגה.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 9h4M7 12h6"/></svg></div>
+          <h3>מכל מקום, לא רק מהחנות</h3>
+          <p>אותה מערכת בדיוק נפתחת מהבית, מהטלפון ומהמחסן — בלי מחשב ייעודי ובלי התקנה. מה שרואים בקופה רואים גם מהספה.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>המערכת רצה בדפדפן — מחשב, טאבלט או טלפון. אין התקנה ואין מחשב ייעודי.</p>
+          <p><b class="lbl">מה שונה כאן</b>אותם מסכים בדיוק מכל מכשיר. לא גרסת מובייל חלקית שחסר בה בדיוק מה שצריך.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>לבדוק פדיון בערב, לאשר הזמנה מהמחסן, לענות ללקוח מהבית.</p>
+        </div>
+      </details>
+      <details class="card rv">
+        <summary>
+          <div class="ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg></div>
+          <h3>התממשקות לאתר הקיים</h3>
+          <p>המלאי, המחירים וההזמנות מסונכרנים מול האתר שכבר יש לכם — בלי להקים אותו מחדש.</p>
+          <span class="more">איך זה עובד בפועל <svg class="cv" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="dtl">
+          <p><b class="lbl">התהליך</b>המלאי, המחירים וההזמנות מסונכרנים מול האתר שכבר יש לכם.</p>
+          <p><b class="lbl">מה שונה כאן</b>הזמנה מהאתר נכנסת לאותו מסך שבו יושבות המכירות מהחנות — לא לתיבה נפרדת.</p>
+          <p class="fix"><b class="lbl">מה זה חוסך</b>למכור באתר פריט שנגמר בחנות, ולהקליד את אותה הזמנה פעמיים.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="rv soon">
+      <p class="eyebrow" style="margin-bottom:12px">נבנה עכשיו · עוד לא באוויר</p>
+      <ul class="soon-list">
+        <li><b>סריקת חשבוניות ספק</b> — מצלמים או מעבירים במייל, והמערכת קוראת, מתייקת ושולחת לרואה החשבון.</li>
+        <li><b>עוזר AI בתוך המערכת</b> — לשאול שאלה על המספרים במקום לחפש אותה בדוח.</li>
+        <li><b>בנייה עצמית</b> — להרכיב מודול חדש מהכלים הקיימים, לבד, בלי לחכות לנו.</li>
+      </ul>
+      <p class="muted" style="margin-top:12px;font-size:13.5px">כתוב כאן כדי שתדעו לאן זה הולך — לא כדי שתשלמו על זה היום.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ איך עובדים ══ -->
+<section class="sec" id="how" style="background:var(--paper-2);border-block:1px solid var(--line)" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:64ch">
+      <p class="eyebrow">איך עובדים איתנו</p>
+      <h2 id="how-h">שתי דרכים לעבוד יחד</h2>
+      <p class="lead" style="margin-top:14px">רוב העסקים לוקחים את המערכת כמו שהיא. יש כאלה שצריכים משהו שעוד לא קיים &mdash; ואת זה בונים יחד, אחד-אחד.</p>
+    </div>
+    <div class="paths">
+      <div class="path path-a rv">
+        <p class="kicker">מסלול א</p>
+        <h3>חבילה קיימת</h3>
+        <p>המערכת עם המודולים שכבר עובדים בחנות אמיתית. בוחרים חבילה, מקימים, מדריכים &mdash; ואתם באוויר. <b style="color:var(--text);font-weight:600">מחיר שוק, גלוי כאן באתר.</b></p>
+        <div class="grow"></div>
+        <a class="btn btn-ghost wide" style="margin-top:20px" href="#pricing">לראות את החבילות</a>
+      </div>
+      <div class="path path-b rv">
+        <p class="kicker">מסלול ב</p>
+        <h3>בונים יחד</h3>
+        <p>יש לכם תהליך שאף מערכת לא מכסה? נשב עליו יחד, נבין אותו לעומק, ונבנה אותו. <b style="color:#fff;font-weight:600">במחיר חברי</b> &mdash; כי מה שנבנה אצלכם משתפר ונכנס למאגר של כולם.</p>
+        <div class="limit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span><b style="color:#fff;font-weight:700">שותף אחד חדש בחודש.</b><br>לא בגלל שיווק &mdash; פשוט כי אני יושב על זה בעצמי, ואם אקח יותר לא אוכל להיות שם באמת.</span>
+        </div>
+        <div class="grow"></div>
+        <a class="btn btn-gold wide" href="#contact">ספרו לנו מה חסר</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ שאיפת המחיר ══ -->
+<section class="sec aim" aria-labelledby="aim-h">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">לטווח ארוך</p>
+      <h2 id="aim-h">השאיפה שלנו: שהמחיר יֵרד, לא יעלה</h2>
+      <div class="aimbox" style="margin-top:24px">
+        <p style="font-size:17px;line-height:1.8;color:var(--text-2)">כל מודול שנבנה עבור עסק אחד <b style="color:var(--text);font-weight:600">משתפר ונכנס למאגר של כולם</b>. ככל שנכסה עוד תחומים ועוד סוגי עסקים, העלות של מודול קיים נפרסת על יותר כתפיים.</p>
+        <p style="font-size:17px;line-height:1.8;color:var(--text-2);margin-top:14px">ובהמשך גם <b style="color:var(--text);font-weight:600">בנייה עצמית</b>: לבקש מודול חדש ולהרכיב אותו מהכלים שכבר קיימים. מה שלא מסתדר &mdash; נשלים בתשלום סמלי.</p>
+        <div class="honest">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          <span><b>וכדי שלא יהיה ספק:</b> אנחנו לא מבטיחים הורדת מחיר ולא נוקבים בתאריך. <b>זו השאיפה, וזה הכיוון שאנחנו הולכים אליו</b> &mdash; עדיף שתדעו את זה מראש מאשר שנבטיח ולא נעמוד.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══ מחירון ══ -->
+<section class="sec prices" id="pricing" aria-labelledby="price-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:64ch">
+      <p class="eyebrow">מחירים</p>
+      <h2 id="price-h">מחיר אחד לחודש. בלי הפתעות.</h2>
+      <p class="lead" style="margin-top:14px">כולל עדכוני גרסה, גיבוי יומי ותמיכה. חשבון הסליקה, חברת המשלוחים וספק החשבוניות נפתחים על שם העסק שלכם — <b style="color:var(--text);font-weight:600">ונשארים שלכם</b>.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier rv">
+        <h3>בסיסית</h3>
+        <p class="muted" style="margin-top:5px">קופה, מלאי, לקוחות ודוחות</p>
+        <div class="price"><b>₪500</b><span>/ לחודש</span></div>
+        <p class="vat">המחיר אינו כולל מע״מ</p>
+        <ul class="feats">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>קופה מלאה · מספר עמדות</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>מלאי לפי דגם, צבע ומידה</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>לקוחות, מבצעים ומועדון</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>דוחות · משמרות קופה · עובדים והרשאות</li>
+          <li class="off"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg>ללא מודול משלוחים</li>
+        </ul>
+        <a class="btn btn-ghost wide" href="#contact">לדבר על החבילה הזו</a>
+      </div>
+
+      <div class="tier best rv">
+        <span class="badge">הנפוצה ביותר</span>
+        <h3>עם משלוחים ואתר</h3>
+        <p class="muted" style="margin-top:5px">כל הבסיסית ‎+‎ מה שקורה אחרי המכירה</p>
+        <div class="price"><b>₪600</b><span>/ לחודש</span></div>
+        <p class="vat">המחיר אינו כולל מע״מ</p>
+        <ul class="feats">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><b style="color:var(--text);font-weight:600">כל מה שבבסיסית</b></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>משלוחים מהמכירה · מדבקות · מעקב סטטוסים</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>התממשקות לאתר קיים — מלאי, מחירים והזמנות</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>אימות כתובות מול מרשם הרחובות</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>מעבדה ותיקונים</li>
+        </ul>
+        <a class="btn btn-gold wide" href="#contact">לדבר על החבילה הזו</a>
+      </div>
+
+      <div class="tier rv">
+        <h3>מלאה</h3>
+        <p class="muted" style="margin-top:5px">כולל תזרים חכם וגבייה</p>
+        <div class="price"><b>₪650</b><span>/ לחודש</span></div>
+        <p class="vat">המחיר אינו כולל מע״מ</p>
+        <ul class="feats">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><b style="color:var(--text);font-weight:600">כל מה שבחבילה עם המשלוחים</b></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>תזרים חכם — מה נכנס, מה צפוי, ומה תקוע</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>גבייה · חייבים · פנקס צ׳קים</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>חשבוניות ספק ומעקב תשלומים</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>ריכוז חודשי ללקוחות עסקיים</li>
+        </ul>
+        <a class="btn btn-ghost wide" href="#contact">לדבר על החבילה הזו</a>
+      </div>
+    </div>
+
+    <p class="muted rv" style="margin-top:18px;text-align:center;line-height:1.8">המחיר הוא לסניף. <b style="color:var(--text);font-weight:600">עמדות נוספות באותו סניף — כלולות</b>; סניף נוסף — בתוספת.<br>הקמת אתר מכירה חדש היא עבודה נפרדת עם הצעת מחיר משלה.</p>
+  
+  </div>
+</section>
+
+<!-- ══ טופס ══ -->
+<section class="sec form-sec" id="contact" aria-labelledby="contact-h">
+  <div class="wrap" style="max-width:820px">
+    <div class="rv" style="text-align:center;margin-bottom:30px">
+      <p class="eyebrow">נדבר</p>
+      <h2 id="contact-h">השאירו פרטים ונחזור אליכם</h2>
+      <p class="lead" style="margin:14px auto 0">שיחה קצרה שבה מבינים מה העסק שלכם צריך. בלי מצגת, בלי לחץ.</p>
+    </div>
+
+    <div class="form-card rv">
+      <div class="okbox" id="okbox" role="status" aria-live="polite">
+        <b>קיבלנו — תודה.</b><br>נחזור אליכם בימי עסקים, בדרך כלל תוך יום.
+      </div>
+
+      <form id="leadForm" novalidate>
+        <div class="f2">
+          <div class="field" id="f-name">
+            <label for="ln">שם מלא<span class="req" aria-hidden="true">*</span></label>
+            <input id="ln" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name" role="alert">צריך שם כדי לדעת למי לפנות</span>
+          </div>
+          <div class="field" id="f-biz">
+            <label for="lb">שם העסק</label>
+            <input id="lb" name="biz" type="text" autocomplete="organization">
+          </div>
+          <div class="field" id="f-phone">
+            <label for="lp">טלפון<span class="req" aria-hidden="true">*</span></label>
+            <input id="lp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="h-phone e-phone">
+            <span class="hint" id="h-phone">לשיחה חוזרת</span>
+            <span class="err" id="e-phone" role="alert">מספר טלפון לא תקין — 9 או 10 ספרות</span>
+          </div>
+          <div class="field" id="f-mail">
+            <label for="le">אימייל</label>
+            <input id="le" name="email" type="email" inputmode="email" autocomplete="email" aria-describedby="e-mail">
+            <span class="err" id="e-mail" role="alert">כתובת אימייל לא תקינה</span>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:16px">
+          <label for="lr">מה מעניין אתכם?</label>
+          <select id="lr" name="route"><option value="">בחרו…</option><option>חבילה קיימת</option><option>לבנות משהו שמתאים לעסק שלי</option><option>עוד לא יודע, בא להתייעץ</option></select>
+        </div>
+        <div class="field" style="margin-top:16px">
+          <label for="lt">סוג העסק</label>
+          <select id="lt" name="kind">
+            <option value="">בחרו…</option>
+            <option>חנות בגדים</option>
+            <option>יודאיקה ומתנות</option>
+            <option>תכשיטים</option>
+            <option>מזון ומסעדנות</option>
+            <option>חנות כללית</option>
+            <option>אחר</option>
+          </select>
+        </div>
+
+        <div class="field" style="margin-top:16px">
+          <label for="lm">מה הכי חשוב לכם שייפתר?</label>
+          <textarea id="lm" name="note" rows="3" aria-describedby="h-note"></textarea>
+          <span class="hint" id="h-note">לא חובה — אבל זה מה שהופך את השיחה לקצרה ומדויקת</span>
+        </div>
+
+        <button class="btn btn-gold wide" type="submit" id="sub" style="margin-top:22px">שליחה</button>
+        <p class="formnote">הפרטים משמשים ליצירת קשר בלבד ולא מועברים לאף גורם שלישי.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ שאלות ══ -->
+<section class="sec" id="faq" style="background:var(--paper-2);border-top:1px solid var(--line)" aria-labelledby="faq-h">
+  <div class="wrap" style="max-width:820px">
+    <div class="rv" style="margin-bottom:28px">
+      <p class="eyebrow">שאלות שחוזרות</p>
+      <h2 id="faq-h">מה שבדרך כלל שואלים</h2>
+    </div>
+    <div class="rv">
+      <details>
+        <summary>המידע שלי — של מי הוא?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">שלכם. חשבון הסליקה, חשבון חברת המשלוחים וחשבון ספק החשבוניות נפתחים על שם העסק — לא על שמנו. אם תחליטו לעזוב, הנתונים יוצאים איתכם ולא נשארים כבני ערובה.</div>
+      </details>
+      <details>
+        <summary>למה רק אחד בחודש?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">כי לבנות מודול חדש זה לשבת עם העסק, להבין איך הוא באמת עובד, ורק אז לבנות. אי אפשר לעשות את זה טוב לחמישה במקביל. <b>אם התור מלא פשוט נגיד את זה</b> — ולא ניקח כסף על משהו שלא נספיק לעשות כמו שצריך.</div>
+      </details>
+      <details>
+        <summary>צריך לקנות חומרה חדשה?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">המערכת רצה בדפדפן — על מחשב, טאבלט או טלפון. מדפסת קבלות, מגירת קופה וסורק ברקוד שכבר יש לכם ברוב המקרים ימשיכו לעבוד. בשיחה נבדוק מה יש אצלכם לפני שקונים משהו.</div>
+      </details>
+      <details>
+        <summary>כמה זמן לוקחת ההקמה?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">תלוי בעיקר בקטלוג. חנות עם קטלוג מסודר עולה לאוויר תוך ימים; קטלוג שצריך לבנות מאפס לוקח יותר. יש אשף שמלווה שלב-שלב ומראה בכל רגע מה עוד חסר — כדי שלא תגלו ביום ההפעלה שמשהו לא הוגדר.</div>
+      </details>
+      <details>
+        <summary>יש לי כבר אתר מכירה. מה איתו?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">מתחברים אליו. המלאי, המחירים וההזמנות מסונכרנים — לא צריך להקים אותו מחדש. אם אין לכם אתר ואתם רוצים אחד, זו עבודה נפרדת עם הצעת מחיר משלה.</div>
+      </details>
+      <details>
+        <summary>ומה קורה כשמשהו נשבר?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">פותחים פנייה מתוך המסך שנתקע, והמערכת אוספת לבד את ההקשר הטכני — כדי שלא תצטרכו להסביר מה לחצתם. אם צריך שניכנס ונסתכל, זה נעשה בסשן מתועד עם יומן <b>שאתם קוראים</b>: מי נכנס, מתי, ומה נעשה.</div>
+      </details>
+      <details>
+        <summary>אני חנות קטנה. זה לא גדול עליי?<svg class="cv" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="body">מודול שלא רלוונטי לעסק שלכם פשוט מכובה — הוא לא מופיע בתפריטים, לא באריחים ולא בהתראות. חנות בלי מעבדה לא תראה מעבדה. אפשר להדליק בחזרה בכל רגע, ושום נתון לא נמחק. <b>זו בדיוק הכוונה ב"כלים של גדולים לעסק קטן"</b> — לא להעמיס, לתת בדיוק את מה שצריך.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top" style="color:#fff;text-decoration:none">
+        <span class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 44 44" fill="none" stroke="#17140c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 37V30h9v-7h9v-6.5h9"/><rect x="30" y="8" width="9" height="8" rx="2.5"/></svg></span>
+        <span dir="ltr">Sanger</span>
+      </a>
+      <p style="font-size:14.5px;margin-top:8px">כלים של גדולים, לעסק קטן · ישראל</p>
+    </div>
+    <nav aria-label="תחתית" style="display:flex;gap:20px;flex-wrap:wrap;font-size:14.5px">
+      <a href="#why">למה זה נבנה</a>
+      <a href="#what">מה יש בפנים</a>
+      <a href="#how">איך עובדים</a>
+      <a href="#pricing">מחירים</a>
+      <a href="#contact">צור קשר</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ── חשיפה בגלילה. מכבדת prefers-reduced-motion, וברירת המחדל
+      אם אין IntersectionObserver היא "הכול גלוי" ולא "הכול נעלם". ── */
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  els.forEach(function(e){io.observe(e)});
+})();
+
+/* ── טופס: ולידציה ב-blur ולא בכל הקשה, שגיאה ליד השדה,
+      ומיקוד אוטומטי לשדה השגוי הראשון אחרי שליחה. ── */
+(function(){
+  var f=document.getElementById('leadForm'); if(!f)return;
+  var ok=document.getElementById('okbox'), sub=document.getElementById('sub');
+  var rules={
+    name:function(v){return v.trim().length>=2},
+    phone:function(v){return /^0\d{1,2}-?\d{7}$|^\d{9,10}$/.test(v.replace(/[\s-]/g,''))},
+    email:function(v){return v===''||/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)}
+  };
+  var map={name:'f-name',phone:'f-phone',email:'f-mail'};
+  function check(n){
+    var el=f.elements[n]; if(!el)return true;
+    var good=rules[n](el.value), box=document.getElementById(map[n]);
+    if(good)box.removeAttribute('data-invalid'); else box.setAttribute('data-invalid','');
+    el.setAttribute('aria-invalid',good?'false':'true');
+    return good;
+  }
+  Object.keys(rules).forEach(function(n){
+    var el=f.elements[n]; if(!el)return;
+    el.addEventListener('blur',function(){check(n)});
+    el.addEventListener('input',function(){
+      if(document.getElementById(map[n]).hasAttribute('data-invalid'))check(n);
+    });
+  });
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var bad=Object.keys(rules).filter(function(n){return !check(n)});
+    if(bad.length){var el=f.elements[bad[0]];el.focus();el.scrollIntoView({block:'center',behavior:'smooth'});return}
+    sub.disabled=true; sub.textContent='שולח…';
+    var data={};['name','biz','phone','email','route','kind','note'].forEach(function(k){
+      if(f.elements[k])data[k]=f.elements[k].value.trim();
+    });
+    /* נקודת החיבור לשרת — ממולאת כשטבלת הלידים תעלה */
+    window.__lead=data;
+    setTimeout(function(){
+      f.style.display='none'; ok.style.display='block';
+      ok.setAttribute('tabindex','-1'); ok.focus();
+      ok.scrollIntoView({block:'center',behavior:'smooth'});
+    },420);
+  });
+})();
+</script>
+</body>
+</html>
